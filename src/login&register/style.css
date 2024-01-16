@@ -9,14 +9,20 @@
     flex-direction: column;
     height: 100vh;
 }
-
+h1{
+    display: flex;
+    justify-Content: center;
+    align-items: center;
+    padding: 20px;
+    border-Bottom: 1px solid #ccc;
+}
 .text {
-    padding: 15px;
+    padding: 20px;
     background: #eee;
     border-radius: 5px;
     letter-spacing: 1px;
     color: grey;
-    font-size: 15px;
+    font-size: 10px;
     border: none;
     margin-bottom: 10px;
 }
@@ -24,7 +30,7 @@
 .container {
     background: white;
     border-radius: 10px;
-    padding: 60px 80px;
+    padding: 30px 70px;
     box-shadow: 0 5px 15px rgb(122, 150, 210);
 }
 

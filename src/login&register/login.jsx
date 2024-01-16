@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import './style.css';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
     const [showLoginModal, setShowLoginModal] = useState(true);
@@ -42,7 +43,10 @@ function LoginModal(props) {
     }
     const handleSubmit = (event) => {
         alert(`ID: ${id} PW: ${pw}`);
+        navigate('/window');
     }
+
+    const navigate = useNavigate();
     const handleButt = () => {
         // props로 전달받은 setShowRegisterModal을 사용하여 상태 변경
         if (props.handleRegisterButtonClick) {
@@ -51,7 +55,7 @@ function LoginModal(props) {
     }
     return (
         <div className="container">
-            <h1 style={{ padding: '20px', borderBottom: '1px solid #ccc' }}>환영합니다!</h1>
+            <h1 style={{ padding: '20px', borderBottom: '1px solid #ccc' }}>로그인</h1>
             <form onSubmit={handleSubmit}>
                 <input type="text" className="text" value={id} onChange={handleChangeID} placeholder="아이디를 입력해주세요." />
                 <input type="password" className="text" value={pw} onChange={handleChangPW} placeholder="비밀번호를 입력해주세요." />
@@ -68,6 +72,7 @@ function LoginModal(props) {
 function RegisterModal(props) {
     const [id, setID] = useState("");
     const [pw, setPW] = useState("");
+    const [rpw, setRPW] = useState("");
     const buttonText = [
         "로그인",
         "회원가입"
@@ -79,8 +84,16 @@ function RegisterModal(props) {
     const handleChangPW = (event) => {
         setPW(event.target.value);
     }
+    const handleChangRPW = (event) => {
+        setRPW(event.target.value);
+    }
     const handleSubmit = (event) => {
-        alert(`ID: ${id} PW: ${pw}`);
+        if(rpw===pw){
+        alert('회원가입 되셨습니다! 환영합니다 :)');
+        }
+        else{
+            alert('비밀번호가 일치하지 않습니다.');
+        }
     }
     const handleButt = () => {
         // props로 전달받은 setShowRegisterModal을 사용하여 상태 변경
@@ -90,14 +103,15 @@ function RegisterModal(props) {
     }
     return (
         <div className="container">
-            <h1 style={{ padding: '20px', borderBottom: '1px solid #ccc' }}>환영합니다!</h1>
+            <h1>회원가입</h1>
             <form onSubmit={handleSubmit}>
                 <input type="text" className="text" value={id} onChange={handleChangeID} placeholder="아이디를 입력해주세요." />
                 <input type="password" className="text" value={pw} onChange={handleChangPW} placeholder="비밀번호를 입력해주세요." />
-                <button type="submit">{buttonText[0]}</button>
+                <input type="password" className="text" value={rpw} onChange={handleChangRPW} placeholder="비밀번호를 재입력해주세요." />
+                <button type="submit">{buttonText[1]}</button>
             </form>
             <div style={{ marginTop: '30px' }}>
-                <label style={{ fontSize: '10px', marginLeft: '25px'}}>혹시 {buttonText[0]}을 안하셨나요?</label>
+                <label style={{ fontSize: '10px', marginLeft: '25px'}}>혹시 {buttonText[1]}을 이미 하셨나요?</label>
                 <button onClick={handleButt} style={{ fontSize: '10px', padding: '1px' }}>{buttonText[0]}</button>
             </div>
         </div>
