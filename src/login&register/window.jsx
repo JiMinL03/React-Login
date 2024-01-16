@@ -3,7 +3,7 @@ import React from "react";
 function Window(){
     return(
         <div>
-            하이
+            <label>ㅎㅇ</label>
         </div>
     )
 }

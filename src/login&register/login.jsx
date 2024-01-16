@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './style.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -14,7 +14,7 @@ function Login() {
         setShowLoginModal(false);
         setShowRegisterModal(true);
     };
-    
+
     return (
         <div className="wrapper">
             {showLoginModal && <LoginModal handleRegisterButtonClick={handleRegisterButtonClick} />}
@@ -35,6 +35,8 @@ function LoginModal(props) {
         "회원가입"
     ];
 
+    const navigate = useNavigate();
+
     const handleChangeID = (event) => {
         setID(event.target.value);
     }
@@ -43,10 +45,8 @@ function LoginModal(props) {
     }
     const handleSubmit = (event) => {
         alert(`ID: ${id} PW: ${pw}`);
-        navigate('/window');
+        navigate('/Window');
     }
-
-    const navigate = useNavigate();
     const handleButt = () => {
         // props로 전달받은 setShowRegisterModal을 사용하여 상태 변경
         if (props.handleRegisterButtonClick) {
@@ -61,7 +61,7 @@ function LoginModal(props) {
                 <input type="password" className="text" value={pw} onChange={handleChangPW} placeholder="비밀번호를 입력해주세요." />
                 <button type="submit">{buttonText[0]}</button>
             </form>
-            <div style={{ marginTop: '30px' , marginLeft: '10px'}}>
+            <div style={{ marginTop: '30px', marginLeft: '10px' }}>
                 <label style={{ fontSize: '10px' }}>혹시 {buttonText[1]}을 안하셨나요?</label>
                 <button onClick={handleButt} style={{ fontSize: '10px', padding: '1px' }}>{buttonText[1]}</button>
             </div>
@@ -88,10 +88,10 @@ function RegisterModal(props) {
         setRPW(event.target.value);
     }
     const handleSubmit = (event) => {
-        if(rpw===pw){
-        alert('회원가입 되셨습니다! 환영합니다 :)');
+        if (rpw === pw) {
+            alert('회원가입 되셨습니다! 환영합니다 :)');
         }
-        else{
+        else {
             alert('비밀번호가 일치하지 않습니다.');
         }
     }
@@ -111,7 +111,7 @@ function RegisterModal(props) {
                 <button type="submit">{buttonText[1]}</button>
             </form>
             <div style={{ marginTop: '30px' }}>
-                <label style={{ fontSize: '10px', marginLeft: '25px'}}>혹시 {buttonText[1]}을 이미 하셨나요?</label>
+                <label style={{ fontSize: '10px', marginLeft: '25px' }}>혹시 {buttonText[1]}을 이미 하셨나요?</label>
                 <button onClick={handleButt} style={{ fontSize: '10px', padding: '1px' }}>{buttonText[0]}</button>
             </div>
         </div>
