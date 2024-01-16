@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&family=Gothic+A1:wght@500&family=Lato:ital,wght@1,900&family=Nanum+Gothic&family=Roboto+Mono&family=Rubik:wght@600&family=Ubuntu:wght@700&display=swap');
+.wrapper {
+    font-family: 'Fira Sans', sans-serif;
+    letter-spacing: 1px;
+    background: linear-gradient(to right, #afbcff, #fdfbdc);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.text {
+    padding: 15px;
+    background: #eee;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    color: grey;
+    font-size: 15px;
+    border: none;
+    margin-bottom: 10px;
+}
+
+.container {
+    background: white;
+    border-radius: 10px;
+    padding: 60px 80px;
+    box-shadow: 0 5px 15px rgb(122, 150, 210);
+}
+
+form {
+    display: flex;  
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+button {
+    border: none;
+    border-radius: 5px;
+    background: #afbcff;
+    padding: 5px;
+    letter-spacing: 1px;
+}
